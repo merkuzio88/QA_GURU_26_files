@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.merkuzio'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testImplementation 'com.codeborne:selenide:6.19.1'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.12'
+    testImplementation 'com.codeborne:pdf-test:1.5.0'
+
+    testImplementation ('com.codeborne:xls-test:1.4.3') {
+        exclude group: 'commons-collections', module: 'commons-collections'
+    }
+    testImplementation 'com.opencsv:opencsv:5.9'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.14.2'
+    implementation ('com.fasterxml.jackson.core:jackson-databind:2.14.2') {
+        exclude group: 'commons-collections', module: 'commons-collections'
+    }
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.2'
+}
+
+test {
+    useJUnitPlatform()
+}

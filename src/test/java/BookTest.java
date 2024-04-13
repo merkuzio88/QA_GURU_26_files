@@ -1,7 +1,9 @@
-import org.junit.jupiter.api.Assertions;
+import models.Book;
 import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.InputStream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BookTest {
 
@@ -15,6 +17,6 @@ public class BookTest {
     }
 
     public void checkAuthorName(Book book, Integer yearOfBirth) {
-        Assertions.assertEquals(book.getAuthor().getYearOfBirth(), yearOfBirth);
+        assertEquals(book.getAuthor().getYearOfBirth(), yearOfBirth);
     }
 }
